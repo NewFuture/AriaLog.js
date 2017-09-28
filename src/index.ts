@@ -10,7 +10,6 @@ const CONFIG = document.getElementById('ARIA-LOG').dataset;
 
 const TOKEN = CONFIG.token;
 const LEVEL = (CONFIG.level || 'warn').toLocaleLowerCase();
-const USER_ID = CONFIG.userid;
 const CORELATION_ID = CONFIG.corelation || ((new Date).getTime() + '-' + Math.random());
 const APP_NAME = CONFIG.appname || location.hostname;
 const LOG_TABLE = (CONFIG.table || APP_NAME).replace(/[^\w\d]/g, '');
@@ -69,8 +68,9 @@ function Log(level: string, action: string, content?: any, attrs?: any) {
  * 初始化设置
  */
 init(TOKEN, APP_NAME, LOG_TABLE, {
-    CorelationId: CORELATION_ID,
-    UserId: USER_ID,
+    corelationId: CORELATION_ID,
+    userId: CONFIG.userid,
+    subscribeId: CONFIG.subid,
 });
 
 /**
@@ -102,8 +102,8 @@ console.log = function () {
 });
 
 //关闭前清空
-if(CONFIG.flush){
-    window.onbeforeunload = flush;    
+if (CONFIG.flush === "true") {
+    window.onbeforeunload = flush;
 }
 
 //捕获全局错误

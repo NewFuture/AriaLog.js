@@ -15,7 +15,7 @@
 ## Usage
 引入前端日志文件,延迟异步自动注入
 ```html
-<script src="logger.js"
+<script src="https://newfuture.github.io/AriaLog.js/dist/logger.js"
         data-token="ariaToken"
         data-corelation="CorelationID"
         data-userid="用户标识"
@@ -29,6 +29,18 @@
         defer="defer">
 </script>
 ```
+
+| 字段            | 说明           | 要求              |
+| --------------- | :------------- | :---------------: |
+| data-token      | Aria 链接TOKEN | 必须              |
+| data-appname    | app name       | 与table不同时为空 |
+| data-table      | 写入表明       | 自动默认appname   |
+| data-userid     | 用户标识       | 可空              |
+| data-corelation | 关联ID         | 可空(自动生成)    |
+| data-subid      | 订阅ID         | 可空              |
+| data-level      | 日志级别       | 可空(默认`warn`)  |
+| data-debug      | 是否打印       | 可空(默认`true`)  |
+| data-flush      | 关闭前强制刷新 | 可空(默认`false`) |
 
 
 ## log注入
@@ -53,19 +65,19 @@ console.info('action',content)
 console.debug('action',content)
 ```
 
-|     字段     |    说明     |       来源       |
-| ------------ | :---------- | :------------: |
-| action       | 操作        |   参数(字符串)   |
-| content      | 内容        |    参数(任意)    |
-| userid       | 用户标识    |    预设(可空)    |
+| 字段         | 说明        | 来源             |
+| ------------ | :---------- | :--------------: |
+| action       | 操作        | 参数(字符串)     |
+| content      | 内容        | 参数(任意)       |
+| userId       | 用户标识    | 预设(可空)       |
 | corelationID | 关联ID      | 预设(空自动生成) |
-| subscribeId  | 订阅ID      |       预设      |
-| appname      | app         |       预设     |
-| level        | 日志级别    |  自动判断和过滤  |
-| label        | 区分标签    |       自动       |
-| userAgent    | UA信息      |     自动生成     |
-| url          | 当前连接URL |       自动       |
-| trace        | 调用栈      |        ?        |
+| subscribeId  | 订阅ID      | 预设             |
+| appname      | app         | 预设             |
+| level        | 日志级别    | 自动判断和过滤   |
+| label        | 区分标签    | 自动             |
+| userAgent    | UA信息      | 自动生成         |
+| url          | 当前连接URL | 自动             |
+| trace        | 调用栈      | ?                |
 
 
 ### telemetry注入
@@ -74,12 +86,12 @@ console.debug('action',content)
 console.log('telemetry','action',content)
 ```
 
-|    字段     |    说明     |     来源     |
-| ----------- | :--------- | :----------: |
+| 字段        | 说明        | 来源         |
+| ----------- | :---------- | :----------: |
 | action      | 操作        | 参数(字符串) |
-| content     | 内容        |   参数设置   |
-| appname     | app        |     预设     |
-| userid      | 用户标识    |     预设     |
-| userAgent   | UA信息      |   自动生成   |
-| url         | 当前连接URL |     自动     |
-| subscribeId | 订阅ID      |     预设     |
+| content     | 内容        | 参数设置     |
+| appname     | app         | 预设         |
+| userId      | 用户标识    | 预设         |
+| userAgent   | UA信息      | 自动生成     |
+| url         | 当前连接URL | 自动         |
+| subscribeId | 订阅ID      | 预设         |
