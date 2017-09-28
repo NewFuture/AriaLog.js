@@ -7,20 +7,23 @@
 3. 尽量减少前端日志的数量
 4. 尽量减小前端日志的体积
 
+## Feathers
+* [x] auto rewrite console interface
+* [x] async loading 
+* [x] catch global JavaScript error event
 
-
-## usage
+## Usage
 引入前端日志文件,延迟异步自动注入
 ```html
 <script src="logger.js"
         data-token="ariaToken"
-        data-level="warn"
-        data-server="服务器地址"
-        data-userid="用户标识"
         data-corelation="CorelationID"
+        data-userid="用户标识"
+        data-appname="AppName"
         data-table="APP写入表名"
-        data-appname="APPname"
-        data-debug="false"
+        data-level="warn"
+        data-debug="true"
+        data-flush="false"
         id="ARIA-LOG"
         async="ture"
         defer="defer">
@@ -28,12 +31,22 @@
 ```
 
 
-### log注入
+## log注入
 前端log作用：分析,发现和定位页面BUG的
 
-触发方式,两个参数
+注入方式
 ```js
+/**
+* @param {string} level 日志级别小写
+* @param {string} action 日志关键action或者位置
+* @param {any?} content 内容可以是string,数字或者Object
+*/
 console.log('{level}','{action}',content)
+```
+
+### 快速调用接口
+快速调用,两个参数
+```js
 console.error('actionName1',content)
 console.warn('actionName2',content)
 console.info('action',content)
@@ -41,18 +54,18 @@ console.debug('action',content)
 ```
 
 |     字段     |    说明     |       来源       |
-| ------------ | :---------- | :--------------: |
+| ------------ | :---------- | :------------: |
 | action       | 操作        |   参数(字符串)   |
 | content      | 内容        |    参数(任意)    |
 | userid       | 用户标识    |    预设(可空)    |
 | corelationID | 关联ID      | 预设(空自动生成) |
-| subscribeId  | 订阅ID      |       预设       |
-| appname      | app         |       预设       |
+| subscribeId  | 订阅ID      |       预设      |
+| appname      | app         |       预设     |
 | level        | 日志级别    |  自动判断和过滤  |
 | label        | 区分标签    |       自动       |
 | userAgent    | UA信息      |     自动生成     |
 | url          | 当前连接URL |       自动       |
-| trace        | 调用栈      |        ?         |
+| trace        | 调用栈      |        ?        |
 
 
 ### telemetry注入
@@ -62,10 +75,10 @@ console.log('telemetry','action',content)
 ```
 
 |    字段     |    说明     |     来源     |
-| ----------- | :---------- | :----------: |
+| ----------- | :--------- | :----------: |
 | action      | 操作        | 参数(字符串) |
 | content     | 内容        |   参数设置   |
-| appname     | app         |     预设     |
+| appname     | app        |     预设     |
 | userid      | 用户标识    |     预设     |
 | userAgent   | UA信息      |   自动生成   |
 | url         | 当前连接URL |     自动     |
