@@ -26,7 +26,7 @@
         data-debug="true"
         data-flush="false"
         id="ARIA-LOG"
-        async="ture"
+        async=true
         defer="defer">
 </script>
 ```
