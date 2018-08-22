@@ -25,6 +25,7 @@
         data-level="warn"
         data-debug="true"
         data-flush="false"
+        data-init=""
         id="ARIA-LOG"
         async=true
         defer="defer">
@@ -42,6 +43,8 @@
 | data-level      | 日志级别       | 可空(默认`warn`)  |
 | data-debug      | 是否打印       | 可空(默认`true`)  |
 | data-flush      | 关闭前强制刷新 | 可空(默认`false`) |
+| data-init       | 回调函数名     | 可空             |
+
 
 
 ## log注入

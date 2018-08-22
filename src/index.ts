@@ -115,3 +115,8 @@ window.onerror = function (msg, url, line, col, error) {
         col: col,
     })
 }
+
+// callback
+if(CONFIG.init){
+    window[CONFIG.init]();
+}
