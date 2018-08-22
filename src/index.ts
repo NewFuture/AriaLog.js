@@ -45,7 +45,7 @@ const _originConsole: Console | any = {
 * @param {any?} content 内容可以是string,数字或者Object
 */
 function Log(level: string, action: string, content?: any, attrs?: any) {
-    var data: any = {
+    var data: { [key: string]: any } = {
         action: action,
         title: document.title,
         url: document.URL
@@ -109,7 +109,7 @@ if (CONFIG.flush === "true") {
 //捕获全局错误
 
 window.onerror = function (msg, url, line, col, error) {
-    Log('error', msg, error, {
+    Log('error', msg as string, error, {
         file: url,
         line: line,
         col: col,

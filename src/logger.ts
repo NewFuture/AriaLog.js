@@ -1,10 +1,9 @@
-import { AWTLogManager, AWTLogger, AWTEventProperty, AWTPiiKind, AWTEventData } from '@aria/webjs-sdk';
+import { AWTLogManager, AWTLogger } from '@aria/webjs-sdk';
 
 // AWTLogger logger
 
 
 let _logger: AWTLogger;
-// var _manager: AWTLogManager;
 let _token: string;
 let _name: string = "logging";
 let _table: string;
@@ -36,6 +35,9 @@ export function init(token: string, name: string, table?: string, config?: Objec
     _token = token;
     _name = name;
     _table = table;
+    for (var key in config) {
+        config[key] = config[key];
+    }
 }
 
 /**

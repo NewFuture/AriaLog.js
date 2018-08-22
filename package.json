@@ -1,7 +1,7 @@
 {
   "name": "logger",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.1.0",
+  "description": "aria logger for front end https://aria.microsoft.com",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --progress --hot --inline --content-base ./dist",
