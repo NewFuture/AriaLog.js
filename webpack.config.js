@@ -1,9 +1,9 @@
 var path = require('path');
-var webpack = require('webpack');
 var UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
-
+    mode: 'production',
+    devtool: 'source-map',
     entry: './src/index.ts',
 
     output: {
@@ -32,13 +32,15 @@ module.exports = {
 
 if (process.env.NODE_ENV === 'production') {
     module.exports.mode = "production"
-    module.exports.devtool = '#source-map';
     module.exports.optimization = {
         minimizer: [
             new UglifyJsPlugin({
+                sourceMap: true,
+                parallel: true,
                 uglifyOptions: {
+                    mangle: true,
                     output: {
-                        comments: false
+                        comments: false,
                     },
                     compress: {
                         properties: true,

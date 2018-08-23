@@ -36,7 +36,7 @@ export function init(token: string, name: string, table?: string, config?: Objec
     _name = name;
     _table = table;
     for (var key in config) {
-        config[key] = config[key];
+        _config[key] = config[key];
     }
 }
 
