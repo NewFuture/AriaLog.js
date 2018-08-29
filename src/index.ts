@@ -10,7 +10,7 @@ const CONFIG = document.getElementById('ARIA-LOG').dataset;
 
 const TOKEN = CONFIG.token;
 const LEVEL = (CONFIG.level || 'warn').toLocaleLowerCase();
-const CORELATION_ID = CONFIG.corelation || ((new Date).getTime() + '-' + Math.random());
+const CORRELATION_ID = CONFIG.correlation || ((new Date).getTime() + '-' + Math.random());
 const APP_NAME = CONFIG.appname || location.hostname;
 const LOG_TABLE = (CONFIG.table || APP_NAME).replace(/[^\w\d]/g, '');
 const VERBOSE = 'debug' in CONFIG ? CONFIG['debug'].toLowerCase() === "true" : true;
@@ -68,7 +68,7 @@ function Log(level: string, action: string, content?: any, attrs?: any) {
  * 初始化设置
  */
 init(TOKEN, APP_NAME, LOG_TABLE, {
-    corelationId: CORELATION_ID,
+    correlationId: CORRELATION_ID,
     userId: CONFIG.userid,
     subscribeId: CONFIG.subid,
 });
@@ -117,6 +117,6 @@ window.onerror = function (msg, url, line, col, error) {
 }
 
 // callback
-if(CONFIG.init){
+if (CONFIG.init) {
     window[CONFIG.init]();
 }

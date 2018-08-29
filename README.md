@@ -18,8 +18,8 @@
 ```html
 <script src="https://newfuture.github.io/AriaLog.js/dist/logger.js"
         data-token="ariaToken"
-        data-corelation="CorelationID"
-        data-userid="用户标识"
+        data-correlation="CorrelationID"
+        data-user  ="用户标识"
         data-appname="AppName"
         data-table="APP写入表名"
         data-level="warn"
@@ -37,8 +37,8 @@
 | data-token      | Aria 链接TOKEN | 必须              |
 | data-appname    | app name       | 与table不同时为空 |
 | data-table      | 写入表明       | 自动默认appname   |
-| data-userid     | 用户标识       | 可空              |
-| data-corelation | 关联ID         | 可空(自动生成)    |
+| data-user       | 用户标识       | 可空              |
+| data-correlation | 关联ID         | 可空(自动生成)    |
 | data-subid      | 订阅ID         | 可空              |
 | data-level      | 日志级别       | 可空(默认`warn`)  |
 | data-debug      | 是否打印       | 可空(默认`true`)  |
@@ -74,7 +74,7 @@ console.debug('action',content)
 | action       | 操作        | 参数(字符串)     |
 | content      | 内容        | 参数(任意)       |
 | userId       | 用户标识    | 预设(可空)       |
-| corelationID | 关联ID      | 预设(空自动生成) |
+| correlationId | 关联ID      | 预设(空自动生成) |
 | subscribeId  | 订阅ID      | 预设             |
 | appname      | app         | 预设             |
 | level        | 日志级别    | 自动判断和过滤   |
