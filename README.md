@@ -1,5 +1,7 @@
 # AriaLog.js
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/NewFuture/AriaLog.js.svg?token=4d38eb48ae4676abd96890c59a5edcbb94f11502921b22c7a79d4454dcd55199&ts=1550894330041)](https://greenkeeper.io/)
+
 ## tips
 
 1. 前端数据永远是不可信的
